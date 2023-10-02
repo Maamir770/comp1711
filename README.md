@@ -1,2 +1,6 @@
-# comp1711
+# comp1711 
+
 initial repo for comp1711 materials
+
+author: aamir
+

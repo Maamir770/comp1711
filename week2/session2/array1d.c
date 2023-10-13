@@ -7,5 +7,7 @@ int main()
     {
         arr[i] = i*10+i;
     }
+    printf("%d and %d\n", *arr, *(arr+1));
+    return 0;
      
 }

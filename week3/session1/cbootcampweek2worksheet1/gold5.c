@@ -9,7 +9,7 @@ int main()
 while(y==0)
 {
 
-printf("enter valid option: ");
+printf("enter a number betwen 1 and 5: ");
 scanf("%d",&x);
 
 

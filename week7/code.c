@@ -1,4 +1,9 @@
 #include "utilities.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
 
 int main()
 {
@@ -21,7 +26,7 @@ int main()
     int counter = 0;
     float mean = 0;
 
-    FILE *input = open_file(filenme,"r");
+    FILE *input = open_file(filename,"r");
 
     while (1)
     {
@@ -59,7 +64,7 @@ int main()
         case 'B':
         case 'b':
             counter = read_file(line, input, daily_readings);
-            mean = find_mean(mean, daily_readings, counter);
+            mean = find_mean(daily_readings, counter);
             printf("Your average blood iron was %.2f\n", mean);
             fclose(input);
             break;
@@ -68,22 +73,34 @@ int main()
         case 'c':
             counter = read_file(line, input, daily_readings);
             float highestreading = find_highest(daily_readings, counter);
-            printf("Highest Blood Iron reading was %.2f\n", highestreading)
+            printf("Highest Blood Iron reading was %.2f\n", highestreading);
             fclose(input);
-            return 0;
             break;
 
         case 'D':
         case 'd':
             counter = read_file(line, input, daily_readings);
             float lowestreading = find_lowest(daily_readings, counter);
-            printf("lowest Blood Iron read was %.2f", lowestreading);
+            printf("lowest Blood Iron read was %.2f\n", lowestreading);
             fclose(input);
-            return 0;
             break;
 
         case 'E':
         case 'e':
+            printf("which months blood readings do you want to see?\n");
+            char month[3];
+            scanf("%s", month);
+            counter = read_file(line, input, daily_readings);
+            for(int i=0;i<counter;i++)
+            {
+                char *p;
+                p = strstr(daily_readings[i].date, month);
+                if(p)
+                {
+                    printf("%s,%.2f\n", daily_readings[i].date,daily_readings[i].bloodIron);
+                }
+            }
+            fclose(input);
             return 0;
             break;
 

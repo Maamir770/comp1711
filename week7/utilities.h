@@ -111,12 +111,12 @@ int data_checker(reading *dataArray, int numReadings)
  * @param numReadings The number of readings in the array
  * @return float The mean of the readings.
  */
-float find_mean(float *mean, reading* dataArray, int numReadings)
+float find_mean(reading* dataArray, int numReadings)
 {
-    mean = 0;
+    float mean = 0;
     for(int i =0; i < numReadings;i++)
     {
-         mean += dataArray[counter].bloodIron;
+         mean += dataArray[i].bloodIron;
     }
     mean /= numReadings;
     return mean;
@@ -140,8 +140,9 @@ float find_highest(reading* dataArray, int numReadings)
             highest = dataArray[i].bloodIron;
             highestindex =i;
         }
-        return highest;
+        
     }
+    return highest;
 }
 
 /**
@@ -162,7 +163,9 @@ float find_lowest(reading* dataArray, int numReadings)
             lowest = dataArray[i].bloodIron;
             lowestindex =i;
         }
-        return highest;
+        
+    }
+    return lowest;
 }
 
 
